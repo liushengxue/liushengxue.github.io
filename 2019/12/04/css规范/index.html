@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="yanm1ng&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      css规范 | Ken
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+    css('css/plugins/gitment.css')
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+    <script src="/js/gitment.js"></script>
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Ken</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>css规范</h2>
+  <p class="post-date">2019-12-04</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>在一个逐渐膨胀的 CSS 项目中保持样式风格统一是比较困难的：尽管修改一个较小的问题，都可能创建更多丑陋的 hack，也可能 CSS 的小改变会影响 JavaScript 的功能。但是如果我们的项目开始能够遵循一种css规则，就能很大程度上避免这些问题。会带来一下这些好处：</p>
+<ol>
+<li>更少的样式</li>
+<li>更少的样式冲突</li>
+<li>更长的维护周期</li>
+<li>更快的提升新团队成员</li>
+<li>团队成员之间更容易交流</li>
+<li>更平稳的项目交接</li>
+</ol>
+<h2 id="BEM命名规范"><a href="#BEM命名规范" class="headerlink" title="BEM命名规范"></a>BEM命名规范</h2><p>BEM 即Block Element Modifier；类名命名规则： Block__Element–Modifier<br>BEM的意思就是块（block）、元素（element）、修饰符（modifier）。</p>
+<ul>
+<li>block: 可以理解为一个区域、一个组件或者一个块级元素，具体如何区分需要根据实际情况具体分析；</li>
+<li>block__element： 就是一个上面的block里面的元素，比如说导航（nav：block）里面有a标签（a: element）就是一个元素， block与element使用两个下划线链接；</li>
+<li>block__element–modifier：状态或属性。比如element里面的a标签，它有active、hover、normal三种状态，这三种状态就是modifier。modifier是使用两个“–”中横线连接</li>
+</ul>
+<p>使用两个连字符和下划线而不是一个，是为了让你自己的块可以用单个连字符来界定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.sub-block__element &#123;&#125;</span><br><span class="line">.sub-block--modifier &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="BEM-命名法的好处"><a href="#BEM-命名法的好处" class="headerlink" title="BEM 命名法的好处"></a>BEM 命名法的好处</h2><p>BEM的关键是，可以获得更多的描述和更加清晰的结构，从其名字可以知道某个标记的含义。于是，通过查看 HTML 代码中的 class 属性，就能知道元素之间的关联。<br>###常规的命名法示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"article"</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"body"</span>&gt;</span><br><span class="line">        &lt;button <span class="class"><span class="keyword">class</span></span>=<span class="string">"button-primary"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">        &lt;button <span class="class"><span class="keyword">class</span></span>=<span class="string">"button-success"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
+<p>这种写法从 DOM 结构和类命名上可以了解每个元素的意义，但无法明确其真实的层级关系。在 css 定义时，也必须依靠层级选择器来限定约束作用域，以避免跨组件的样式污染。</p>
+<h3 id="使用了-BEM-命名方法的示例："><a href="#使用了-BEM-命名方法的示例：" class="headerlink" title="使用了 BEM 命名方法的示例："></a>使用了 BEM 命名方法的示例：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"article"</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"article__body"</span>&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"tag"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">        &lt;button <span class="class"><span class="keyword">class</span></span>=<span class="string">"article__button--primary"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">        &lt;button <span class="class"><span class="keyword">class</span></span>=<span class="string">"article__button--success"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="在CSS预处理器中使用-BEM-格式"><a href="#在CSS预处理器中使用-BEM-格式" class="headerlink" title="在CSS预处理器中使用 BEM 格式"></a>在CSS预处理器中使用 BEM 格式</h3><p>BEM 的一个槽点是，命名方式长而难看，书写不雅。相比 BEM 格式带来的便利来说，我们应客观看待。<br>而且，一般来说会使用通过 LESS/SASS 等预处理器语言来编写 CSS，利用其语言特性书写起来要简单很多。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.article &#123;</span><br><span class="line">    max-width: <span class="number">1200</span>px;</span><br><span class="line"> </span><br><span class="line">    &amp;__body &#123;</span><br><span class="line">        padding: <span class="number">20</span>px;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    &amp;__button &#123;</span><br><span class="line">        padding: <span class="number">5</span>px <span class="number">8</span>px;</span><br><span class="line"> </span><br><span class="line">        &amp;--primary &#123;<span class="attr">background</span>: blue;&#125;</span><br><span class="line">        &amp;--success &#123;<span class="attr">background</span>: green;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过 BEM 命名方式，模块层级关系简单清晰，而且 css 书写上也不必作过多的层级选择。<br>###在流行框架的组件中使用 BEM 格式<br>在当前流行的 Vue.js / React / Angular 等前端框架中，都有 CSS 组件级作用域的编译实现，其基本原理均为利用 CSS 属性选择器特性，为不同的组件生成不同的属性选择器。<br>当选择了这种局部作用域的写法时，在较小的组件中，BEM 格式可能显得没那么重要。但对于公共的、全局性的模块样式定义，还是推荐使用 BEM 格式。<br>另外，对于对外发布的公共组件来说，一般为了风格的可定制性，都不会使用这种局部作用域方式来定义组件样式。此时使用 BEM 格式也会大显其彩。<br>##命名空间<br>使用命名空间前缀来进行分类。这些前缀会在你的命名前添加一组字符，但是这个值能立刻标记每一个类的目的，在你看 HTML 或者样式的时候是很需要的。我使用下面这些命名空间：</p>
+<ul>
+<li>对象类：<code>.o-</code></li>
+<li>组件：<code>.c-</code></li>
+<li>状态类：<code>.is-</code> 或者 <code>.has-</code></li>
+<li>主题：<code>.t-</code></li>
+<li>工具类：<code>.u-</code></li>
+<li>JavaScript 勾子：<code>.js-</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;footer <span class="class"><span class="keyword">class</span></span>=<span class="string">"c-footer"</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"o-container-wide"</span>&gt;</span><br><span class="line">        &lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">"c-footer__logo"</span> href=<span class="string">"/"</span>&gt;The Assist&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div class="c-social c-social--follow"&gt;</span></span><br><span class="line"><span class="regexp">            &lt;div class="c-social__label u-txt-center"&gt;Join the conversation&lt;/</span>div&gt;</span><br><span class="line">            &lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"c-social__list"</span>&gt;</span><br><span class="line">                &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"c-social__item"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"c-social__item is-active"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">                &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"c-social__item"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">            &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>div&gt;</span><br><span class="line">        &lt;p <span class="class"><span class="keyword">class</span></span>=<span class="string">"c-footer__credit"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>footer&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="属性顺序"><a href="#属性顺序" class="headerlink" title="属性顺序"></a>属性顺序</h2><p>HTML 属性应该按照特定的顺序出现以保证易读性。</p>
+<ul>
+<li>class</li>
+<li>id, name</li>
+<li>data-*</li>
+<li>src, for, type, href, value</li>
+<li>title, alt</li>
+<li>role, aria-*</li>
+</ul>
+<p>Classes 是为高可复用组件设计的，所以他们处在第一位。Ids 更加具体而且应该尽量少使用（例如, 页内书签），所以他们处在第二位。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">"..."</span> id=<span class="string">"..."</span> data-toggle=<span class="string">"modal"</span> href=<span class="string">"#"</span>&gt;</span><br><span class="line">  Example link</span><br><span class="line">&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;input class="form-control" type="text"&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;img src="..." alt="..."&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="声明顺序"><a href="#声明顺序" class="headerlink" title="声明顺序"></a>声明顺序</h2><p>相关的属性声明应该以下面的顺序分组处理：</p>
+<ul>
+<li><p>Positioning  相关属性包括：position / top / right / bottom / left / float / display / overflow 等</p>
+</li>
+<li><p>Box model 盒模型  相关属性包括：border / margin / padding / width / height 等</p>
+</li>
+<li><p>Typographic 相关属性包括：font / line-height / text-align / word-wrap 等</p>
+</li>
+<li><p>Visual 外观 相关属性包括：background / color / transition / list-style 等<br>Positioning 处在第一位，因为他可以使一个元素脱离正常文本流，并且覆盖盒模型相关的样式。盒模型紧跟其后，因为他决定了一个组件的大小和位置。<br>其他属性只在组件 内部 起作用或者不会对前面两种情况的结果产生影响，所以他们排在后面。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">.declaration-order &#123;</span><br><span class="line">  <span class="comment">/* Positioning */</span></span><br><span class="line">  position: absolute;</span><br><span class="line">  top: <span class="number">0</span>;</span><br><span class="line">  right: <span class="number">0</span>;</span><br><span class="line">  bottom: <span class="number">0</span>;</span><br><span class="line">  left: <span class="number">0</span>;</span><br><span class="line">  z-index: <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Box-model */</span></span><br><span class="line">  display: block;</span><br><span class="line">  float: right;</span><br><span class="line">  width: <span class="number">100</span>px;</span><br><span class="line">  height: <span class="number">100</span>px;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Typography */</span></span><br><span class="line">  font: normal <span class="number">13</span>px <span class="string">"Helvetica Neue"</span>, sans-serif;</span><br><span class="line">  line-height: <span class="number">1.5</span>;</span><br><span class="line">  color: #333;</span><br><span class="line">  text-align: center;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Visual */</span></span><br><span class="line">  background-color: #f5f5f5;</span><br><span class="line">  border: 1px solid #e5e5e5;</span><br><span class="line">  border-radius: <span class="number">3</span>px;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Misc */</span></span><br><span class="line">  opacity: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>MDN上将CSS选择符归拆分成四个主要类别，如下所示，性能依次降低。</p>
+</li>
+<li><p>ID 规则</p>
+</li>
+<li><p>Class 规则</p>
+</li>
+<li><p>标签规则</p>
+</li>
+<li><p>通用规则</p>
+</li>
+</ul>
+<h3 id="避免使用后代选择器"><a href="#避免使用后代选择器" class="headerlink" title="避免使用后代选择器"></a>避免使用后代选择器</h3><p>不仅性能低下而且代码很脆弱，html代码和css代码严重耦合，html代码结构发生变化时，CSS也得修改，特别是在大公司里，写html和css的往往不是同一个人。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">html div tr td &#123;..&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用复合语法"><a href="#使用复合语法" class="headerlink" title="使用复合语法"></a>使用复合语法</h2><p>尽可能使用复合语法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.someclass &#123;</span><br><span class="line"> padding-top: <span class="number">20</span>px;</span><br><span class="line"> padding-bottom: <span class="number">20</span>px;</span><br><span class="line"> padding-left: <span class="number">10</span>px;</span><br><span class="line"> padding-right: <span class="number">10</span>px;</span><br><span class="line"> background: #000;</span><br><span class="line"> background-image: url(../imgs/carrot.png);</span><br><span class="line"> background-position: bottom;</span><br><span class="line"> background-repeat: repeat-x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.someclass &#123;</span><br><span class="line"> padding: <span class="number">20</span>px <span class="number">10</span>px <span class="number">20</span>px <span class="number">10</span>px;</span><br><span class="line"> background: #000 url(../imgs/carrot.png) repeat-x bottom;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>组织好的代码格式<br>代码的易读性和易维护性成正比。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">.someclass-a, .someclass-b, .someclass-c, .someclass-d &#123;</span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.someclass-a, </span><br><span class="line">.someclass-b, </span><br><span class="line">.someclass-c, </span><br><span class="line">.someclass-d &#123;</span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.someclass &#123;</span><br><span class="line">    background-image:</span><br><span class="line">        linear-gradient(#000, #ccc),</span><br><span class="line">        linear-gradient(#ccc, #ddd);</span><br><span class="line">    box-shadow:</span><br><span class="line">        2px 2px 2px #000,</span><br><span class="line">        1px 4px 1px 1px #ddd inset;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ul>
+<li>使用两个空格的 soft tabs — 这是保证代码在各种环境下显示一致的唯一方式。</li>
+<li>使用组合选择器时，保持每个独立的选择器占用一行。</li>
+<li>为了代码的易读性，在每个声明的左括号前增加一个空格。</li>
+<li>声明块的右括号应该另起一行。</li>
+<li>每条声明: 后应该插入一个空格。</li>
+<li>所有声明应该以分号结尾。虽然最后一条声明后的分号是可选的，但是如果没有他，你的代码会更容易出错。</li>
+<li>不要在颜色值 rgb(), rgba(), hsl(), hsla(), 和 rect() 中增加空格</li>
+<li>不要在属性取值或者颜色参数前面添加不必要的 0 (比如，使用 .5 替代 0.5 和 -.5px 替代 0.5px)。</li>
+<li>所有的十六进制值都应该使用小写字母，例如#fff。因为小写字母有更多样的外形，在浏览文档时，他们能够更轻松的被区分开来。尽可能使用短的十六进制数值，例如使用 #fff 替代 #ffffff。</li>
+<li>为选择器中得属性取值添加引号，例如 input[type=”text”]。 他们只在某些情况下可有可无，所以都使用引号可以增加一致性。</li>
+<li>不要为 0 指明单位，比如使用 margin: 0; 而不是 margin: 0px;。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Bad CSS */</span></span><br><span class="line">.selector, .selector-secondary, .selector[type=text] &#123;</span><br><span class="line">  padding:<span class="number">15</span>px;</span><br><span class="line">  margin:<span class="number">0</span>px <span class="number">0</span>px <span class="number">15</span>px;</span><br><span class="line">  background-color:rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.5</span>);</span><br><span class="line">  box-shadow:0 1px 2px #CCC,inset 0 1px 0 #FFFFFF</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Good CSS */</span></span><br><span class="line">.selector,</span><br><span class="line">.selector-secondary,</span><br><span class="line">.selector[type=<span class="string">"text"</span>] &#123;</span><br><span class="line">  padding: <span class="number">15</span>px;</span><br><span class="line">  margin-bottom: <span class="number">15</span>px;</span><br><span class="line">  background-color: rgba(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">.5</span>);</span><br><span class="line">  box-shadow: 0px 1px 2px #ccc, inset 0 1px 0 #fff;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="不要使用-import"><a href="#不要使用-import" class="headerlink" title="不要使用 @import"></a>不要使用 @import</h2><p>与 <link> 相比, @import 更慢，需要额外的页面请求，并且可能引发其他的意想不到的问题。应该避免使用他们，而选择其他的方案：<br>使用多个 <link> 元素<br>使用 CSS 预处理器例如 Sass 或 Less 将样式编译到一个文件中<br>使用 Rails, Jekyll 或其他环境提供的功能，来合并 CSS 文件。</p>
+<p>##单条声明的声明块<br>在一个声明块中只包含一条声明的情况下，为了易读性和快速编辑可以考虑移除其中的换行。所有包含多条声明的声明块应该分为多行。<br>这样做的关键因素是错误检测 - 例如，一个 CSS 验证程序显示你在 183 行有一个语法错误,如果是一个单条声明的行，那就是他了。在多个声明的情况下，你必须为哪里出错了费下脑子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Single declarations on one line */</span></span><br><span class="line">.span1 &#123; <span class="attr">width</span>: <span class="number">60</span>px; &#125;</span><br><span class="line">.span2 &#123; <span class="attr">width</span>: <span class="number">140</span>px; &#125;</span><br><span class="line">.span3 &#123; <span class="attr">width</span>: <span class="number">220</span>px; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Multiple declarations, one per line */</span></span><br><span class="line">.sprite &#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  width: <span class="number">16</span>px;</span><br><span class="line">  height: <span class="number">15</span>px;</span><br><span class="line">  background-image: url(../img/sprite.png);</span><br><span class="line">&#125;</span><br><span class="line">.icon           &#123; background-position: <span class="number">0</span> <span class="number">0</span>; &#125;</span><br><span class="line">.icon-home      &#123; background-position: <span class="number">0</span> <span class="number">-20</span>px; &#125;</span><br><span class="line">.icon-account   &#123; background-position: <span class="number">0</span> <span class="number">-40</span>px; &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><ul>
+<li>避免在经常出现的组件中使用一些属性选择器 (例如，[class^=”…”])。浏览器性能会受到这些情况的影响。</li>
+<li>减少选择器的长度，每个组合选择器选择器的条目应该尽量控制在 3 个以内。</li>
+<li>只在必要的情况下使用后代选择器 </li>
+</ul>
+<h2 id="代码组织"><a href="#代码组织" class="headerlink" title="代码组织"></a>代码组织</h2><p>以组件为单位组织代码。<br>制定一个一致的注释层级结构。<br>当使用多个 CSS 文件时，通过组件而不是页面来区分他们。页面会被重新排列组合，而组件是可以移动的。</p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#css" >
+    <span class="tag-code">css</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#BEM命名规范"><span class="toc-nav-text">BEM命名规范</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#BEM-命名法的好处"><span class="toc-nav-text">BEM 命名法的好处</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#使用了-BEM-命名方法的示例："><span class="toc-nav-text">使用了 BEM 命名方法的示例：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#在CSS预处理器中使用-BEM-格式"><span class="toc-nav-text">在CSS预处理器中使用 BEM 格式</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#属性顺序"><span class="toc-nav-text">属性顺序</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#声明顺序"><span class="toc-nav-text">声明顺序</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#避免使用后代选择器"><span class="toc-nav-text">避免使用后代选择器</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#使用复合语法"><span class="toc-nav-text">使用复合语法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#语法"><span class="toc-nav-text">语法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#不要使用-import"><span class="toc-nav-text">不要使用 @import</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#选择器"><span class="toc-nav-text">选择器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#代码组织"><span class="toc-nav-text">代码组织</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://yoursite.com/2019/12/04/css规范/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+  <script>
+    var gitmentConfig = "yanm1ng";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "css规范",
+        owner: "yanm1ng",
+        repo: "yanm1ng.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  </script>
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng" target="_blank" rel="noopener">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>
